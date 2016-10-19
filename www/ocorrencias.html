@@ -22,7 +22,7 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
@@ -32,7 +32,7 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
-  <body ng-app="starter">
+  <body ng-app="sisma">
 
     <ion-pane style="background-color: #FA810A;">
       <ion-header-bar class="bar-stable">
@@ -40,31 +40,17 @@
       </ion-header-bar>
       <ion-content style="margin:20px;">
         <h3>Suas ocorrências:</h3>
-        <div class="list">
+        <div class="list" ng-controller="OcorrenciasController">
+          <div ng-repeat="ocorrencia in ocorrencias">
           <a class="item item-thumbnail-left" href="ocorrenciasDetalhes.html">
             <img src="cover.jpg">
-            <p>Protocolo: XXXX</p>
-            <p>Local: Banheiro</p>
-            <p>Demanda: Torneira</p>
+            <p>Protocolo: {{ocorrencia.id}}</p>
+            <p>Local: {{ocorrencia.local[0].descricao}}</p>
+            <p>Demanda: {{ocorrencia.demanda[0].descricao}}</p>
+            <p>Data de cadastro: {{ocorrencia.datacadastro}}</p>
           </a>
-          <a class="item item-thumbnail-left" href="ocorrenciasDetalhes.html">
-            <img src="cover.jpg">
-            <p>Protocolo: XXXX</p>
-            <p>Local: Banheiro</p>
-            <p>Demanda: Torneira</p>
-          </a>
-          <a class="item item-thumbnail-left" href="ocorrenciasDetalhes.html">
-            <img src="cover.jpg">
-            <p>Protocolo: XXXX</p>
-            <p>Local: Banheiro</p>
-            <p>Demanda: Torneira</p>
-          </a>
-          <a class="item item-thumbnail-left" href="ocorrenciasDetalhes.html">
-            <img src="cover.jpg">
-            <p>Protocolo: XXXX</p>
-            <p>Local: Banheiro</p>
-            <p>Demanda: Torneira</p>
-          </a>
+
+        </div>
         </div>
         <h3>Acessar pelo protocolo:</h3>
         <div class="list">
