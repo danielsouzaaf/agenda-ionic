@@ -1,1 +1,11 @@
-/* Empty. Add your own CSS if you like */
+.scrollable-list
+{
+  width: 30%;
+  height: 34%;
+  line-height: 2em;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+}
