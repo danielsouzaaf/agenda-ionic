@@ -4,6 +4,23 @@
 // 'sisma' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('sisma', ['ionic'])
+.controller('ContatosPostController', function($scope, $http){
+  $scope.data = {};
+
+  $scope.postContato = function(){
+    var link = 'http://10.21.0.137/20131011110029/api/contato';
+
+    $http.post(link, {Nome: $scope.data.nome, Telefone: $scope.data.telefone}).then(function (res){
+      $scope.response = res.data;
+    });
+  };
+})
+.controller('ContatosController', function($scope, $http){
+  $http.get('http://10.21.0.137/20131011110029/api/contato').
+  then(function(response){
+    $scope.contatos = response.data;
+  });
+})
 .controller('DemandasController', function($scope, $http) {
 
 $http.get('http://10.21.0.137/20131011110380/api/demanda').
